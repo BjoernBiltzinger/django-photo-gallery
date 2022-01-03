@@ -10,6 +10,8 @@ import app.views
 
 from django.conf.urls import include
 from django.contrib import admin
+from django.urls import path
+
 admin.autodiscover()
 
 urlpatterns = [
@@ -25,6 +27,8 @@ urlpatterns = [
     # Uncomment the next line to enable the admin:
     url(r'^admin/', admin.site.urls),
 
+    #download
+    path("download_all/<str:slug>", app.views.download_file, name="download_all")
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

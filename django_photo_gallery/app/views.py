@@ -34,3 +34,36 @@ class AlbumDetail(DetailView):
 def handler404(request, exception):
     assert isinstance(request, HttpRequest)
     return render(request, 'handler404.html', None, None, 404)
+
+import mimetypes
+from django.http import HttpResponse
+import os
+from zipfile import ZipFile
+import tempfile
+def download_file(request, slug):
+    # fill these variables with real values
+    #s=Album.objects.get(slug=slug)
+
+    fl_path_base = "/home/bjorn/python_sw/django-photo-gallery/django_photo_gallery/media/albums/"
+
+    # get all fotos
+    files = os.listdir(fl_path_base)
+    final_files = []
+    final_files_paths = []
+
+    for f in files:
+        if f.startswith(f"{slug}-"):
+            final_files.append(f)
+            final_files_paths.append(os.path.join(fl_path_base, f))
+
+    response = HttpResponse(content_type='application/zip')
+    with tempfile.NamedTemporaryFile() as tmp:
+        # writing files to a zipfile
+        with ZipFile(tmp.name, 'w') as zipf:
+            # writing each file one by one
+            for p, f in zip(final_files_paths, final_files):
+                zipf.write(p, f)
+        with open(tmp.name,'rb') as zipf:
+            response = HttpResponse(zipf, content_type='application/zip')
+            response['Content-Disposition'] = f'attachment; filename={slug}.zip'
+    return response

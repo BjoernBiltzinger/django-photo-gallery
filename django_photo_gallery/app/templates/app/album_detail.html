@@ -4,6 +4,7 @@
 {% block css %}
     <link rel="stylesheet" href="{% static 'external/photoswipe/photoswipe.css' %}"> 
     <link rel="stylesheet" href="{% static 'external/photoswipe/default-skin/default-skin.css' %}">
+     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 {% endblock %}
 
 
@@ -16,6 +17,13 @@
             </header>
             <section class="col s12 m12 l10 offset-l1">
                 <p>{{ album.description }}</p>
+                <p>
+                    <a href="{% url 'download_all' album.slug %}">
+                        <button class="w3-button w3-teal w3-hover-green">
+                            Alle Fotos aus diesem Ordner runterladen (als .zip file, dauert kurz)
+                        </button>
+                    </a>
+                </p>
 
                 <section id="photos">
                         {% for item in images %}
@@ -24,15 +32,6 @@
                         </a>
                         {% endfor %}
                 </section>
-                <!--<div class="container">
-                    <div class="row">
-                        {% for item in images %}
-                        <a class="col s12 m3" href="javascript:pswpInit({{ forloop.counter0 }});">
-                            <img src="{{ item.thumb.url }}" class="responsive-img dpg-album-image" alt="{{ item.alt }}" />
-                        </a>
-                        {% endfor %}
-                    </div>
-                </div>-->
 
             </section>
             <footer class="col s12 m12 l10 offset-l1">
