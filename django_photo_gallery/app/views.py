@@ -44,7 +44,7 @@ def download_file(request, slug):
     # fill these variables with real values
     #s=Album.objects.get(slug=slug)
 
-    fl_path_base = "/home/bjorn/python_sw/django-photo-gallery/django_photo_gallery/media/albums/"
+    fl_path_base = "/home/biltzevoy/hochzeit/django-photo-gallery/django_photo_gallery/media/albums/"
 
     # get all fotos
     files = os.listdir(fl_path_base)
