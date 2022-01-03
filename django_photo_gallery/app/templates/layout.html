@@ -10,50 +10,22 @@
 
 <body>
     <nav role="navigation">
-        <div class="nav-wrapper container">
-            <a id="logo-container" href="#" class="brand-logo">Django Photo Gallery</a>
-            <ul class="right hide-on-med-and-down">
-                <li>
-                    <a href="#">Navbar Link</a>
-                </li>
-            </ul>
-
-            <ul id="nav-mobile" class="sidenav" style="transform: translateX(-105%);">
-                <li>
-                    <a href="#">Navbar Link</a>
-                </li>
-            </ul>
-            <a href="#" data-target="nav-mobile" class="sidenav-trigger">
-                <i class="material-icons">menu</i>
-            </a>
+        <div class="nav-wrapper">
+            <div style="padding-left:3%;">
+                <a id="logo-container" href="/" class="brand-logo">
+                    Hochzeit Anja & Björn
+                </a>
+            </div>
         </div>
     </nav>
 
     {% block content %}{% endblock %}
 
     <footer class="page-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col l6 s12">
-                    <a href="http://blog.velingeorgiev.pro/" target="_blank">
-                        <img src="{% static 'social/social-rss.svg' %}" class="dpg-icon" alt="Django Photo Gallery RSS Feed" />
-                    </a>
-                    <a href="https://github.com/VelinGeorgiev" target="_blank">
-                        <img src="{% static 'social/social-github.svg' %}" class="dpg-icon" alt="Django Photo Gallery Github" />
-                    </a>
-                    <a href="https://www.linkedin.com/in/velingeorgiev" target="_blank">
-                        <img src="{% static 'social/social-linkedin.svg' %}" class="dpg-icon" alt="Django Photo Gallery Linkedin" />
-                    </a>
-                    <a href="https://twitter.com/velingeorgiev" target="_blank">
-                        <img src="{% static 'social/social-twitter.svg' %}" class="dpg-icon" alt="Django Photo Gallery Twitter" />
-                    </a>
-                </div>
-            </div>
-        </div>
         <div class="footer-copyright">
             <div class="container">
-                © 2017 Copyright Free - Sharing is Caring
-                <a class="grey-text text-lighten-4 right" href="#!">Sample created by @VelinGeorgiev</a>
+                <div class="grey-text text-lighten-4 right">
+                Build on top of the <a href="https://github.com/VelinGeorgiev/django-photo-gallery">sample</a> from VelinGeorgiev by <a href="https://github.com/BjoernBiltzinger">Bjoern Biltzinger</a>
             </div>
         </div>
     </footer>
